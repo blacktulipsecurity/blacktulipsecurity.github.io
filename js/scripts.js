@@ -66,32 +66,28 @@ $(window).resize(function(){
         $(this).removeClass('mobileHover');
       });
 
-    $('.logo').on('click touch', function() {
-      if ($('body').scrollTop() != 0 || $('html').scrollTop() != 0) {
+    var scrollToTopAndGoTo = function (e, id) {
+      e.preventDefault();
+
+      $target = $(id);
+      if ($('body').scrollTop() !== 0 || $('html').scrollTop() !== 0) {
         $('html, body').animate({ scrollTop: 0 }, 400);
         setTimeout(function(){
-          $('#diensten').click();
+          $target.click();
         }, 500);
       }
 
       else {
-        $('#diensten').click();
+        $target.click();
       }
+    };
+
+    $('.logo').on('click touch', function(e) {
+      scrollToTopAndGoTo(e, '#diensten');
     });
 
     $('.goToContact').on('click touch', function (e) {
-      e.preventDefault();
-
-      if ($('body').scrollTop() !== 0 || $('html').scrollTop() !== 0) {
-        $('html, body').animate({ scrollTop: 0 }, 400);
-        setTimeout(function () {
-          $('#contact').click();
-        }, 500);
-      }
-
-      else {
-        $('#contact').click();
-      }
+      scrollToTopAndGoTo(e, '#contact');
     });
 
     $('.services_item').on('click touch', function (e) {
