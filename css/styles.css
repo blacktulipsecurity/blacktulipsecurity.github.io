@@ -295,6 +295,20 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
   filter:alpha(opacity=0);
+  -webkit-transition: opacity 1.5s ease-out;
+  -moz-transition: opacity 1.5s ease-out;
+  -o-transition: opacity 1.5s ease-out;
+  -ms-transition: opacity 1.5s ease-out;
+  transition: opacity 1.5s ease-out;
+}
+
+.backdrop.visible {
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  opacity: 0.3;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+  filter:alpha(opacity=30);
 }
 
 .logo {
@@ -524,9 +538,10 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
 }
 
-/* LEAFLET/BROCHURE */
-.leaflet {
+/* services/BROCHURE */
+.services {
   width: 100%;
+  max-width: 1920px;
   position: relative;
   font-size: 24px;
   margin: 0 auto;
@@ -535,12 +550,12 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
-.leaflet_item {
+.services_item {
   overflow: hidden;
   font-size: 1em;
 }
 
-.leaflet_item > .leaflet_back {
+.services_item > .services_back {
   font-size: .65em;
   line-height: 1.4em;
   -moz-opacity: 0;
@@ -551,19 +566,19 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   filter:alpha(opacity=0);
 }
 
-.leaflet_item > .leaflet_front {
+.services_item > .services_front {
   position: relative;
 }
 
-.leaflet_item > .leaflet_front > i {
+.services_item > .services_front > i {
   position: absolute;
 }
 
-.leaflet_item > .leaflet_back ul {
+.services_item > .services_back ul {
   list-style: none;
 }
 
-.leaflet_item > .leaflet_back ul li i {
+.services_item > .services_back ul li i {
   font-size: .7em;
   line-height: 1.3em;
   margin-right: 5%;
@@ -584,17 +599,17 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     left: 10px;
   }
 
-  .leaflet {
+  .services {
     margin-top: 20px !important;
   }
 }
 
 @media all and (max-width: 940px) {
-  .leaflet {
+  .services {
     margin-top: 60px;
   }
 
-  .leaflet_item {
+  .services_item {
     width: 100%;
     max-height: 0;
     border-right: medium none;
@@ -610,14 +625,15 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     background: linear-gradient(to bottom,  #e0e0e0 0%,#c1c1c1 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#c1c1c1',GradientType=0 );
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .leaflet_item.unfolded {
+  .services_item.unfolded {
     padding: 40px 40px 40px 40px;
     max-height: 500px;
   }
 
-  .leaflet_item.unfolded > .leaflet_back {
+  .services_item.unfolded > .services_back {
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1;
@@ -626,17 +642,17 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     filter:alpha(opacity=100);
   }
 
-  .leaflet_item > .leaflet_overlay {
+  .services_item > .services_overlay {
     display: none;
   }
 
-  .leaflet_item > .leaflet_front,
-  .leaflet_item > .leaflet_back {
+  .services_item > .services_front,
+  .services_item > .services_back {
     color: #222;
     text-shadow: none;
   }
 
-  .leaflet_item > .leaflet_front {
+  .services_item > .services_front {
     height: 60px;
     font-weight: 700;
     font-size: 1em;
@@ -644,14 +660,14 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     margin-bottom: 25px;
   }
 
-  .leaflet_item > .leaflet_front > span {
+  .services_item > .services_front > span {
     display: block;
     font-weight: 300;
     font-size: 28px;
     color: #0070c6;
   }
 
-  .leaflet_item > .leaflet_front > span:after {
+  .services_item > .services_front > span:after {
     content: "";
     display: block;
     height: 2px;
@@ -664,7 +680,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     opacity: 0.3;
   }
 
-  .leaflet_item > .leaflet_front > span:before {
+  /* .services_item > .services_front > span:before {
     content: "";
     display: block;
     width: 8px;
@@ -674,15 +690,31 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     position: absolute;
     bottom: -5px;
     right: 23px;
-  }
+  } */
 
-  .leaflet_item > .leaflet_front > i {
+  .services_item > .services_front > i {
     color: #0070c6;
     top: 15px;
     right: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
   }
 
-  .leaflet_item > .leaflet_back {
+  .services_item.unfolded > .services_front > i {
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+
+  .services_item > .services_back {
     font-size: .65em;
     line-height: 1.4em;
     -moz-opacity: 0;
@@ -693,19 +725,19 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     filter:alpha(opacity=0);
   }
 
-  .leaflet_item > .leaflet_back ul {
+  .services_item > .services_back ul {
     margin-top: 20px;
   }
 }
 
 @media all and (min-width: 941px) {
-  .leaflet {
+  .services {
     margin-top: 60px !important;
     color: #222;
     background-color: #ffffff;
   }
 
-  .leaflet:before {
+  .services:before {
     content: "";
     display: block;
     padding-top: 30%;
@@ -717,13 +749,13 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   }
 
   /* IMAGES WITH RATIO OF 2/3! */
-  .leaflet_item#leaflet_horeca .leaflet_backdrop { background-image: url('../img/leaflet/horeca.png'); }
-  .leaflet_item#leaflet_winkels .leaflet_backdrop { background-image: url('../img/leaflet/winkels.png'); }
-  .leaflet_item#leaflet_evenementen .leaflet_backdrop { background-image: url('../img/leaflet/evenementen.png'); }
-  .leaflet_item#leaflet_objecten .leaflet_backdrop { background-image: url('../img/leaflet/objecten.png'); }
-  .leaflet_item#leaflet_overig .leaflet_backdrop { background-image: url('../img/leaflet/overig.png'); }
+  .services_item#services_horeca .services_backdrop { background-image: url('../img/services/horeca.png'); }
+  .services_item#services_winkels .services_backdrop { background-image: url('../img/services/winkels.png'); }
+  .services_item#services_evenementen .services_backdrop { background-image: url('../img/services/evenementen.png'); }
+  .services_item#services_objecten .services_backdrop { background-image: url('../img/services/objecten.png'); }
+  .services_item#services_overig .services_backdrop { background-image: url('../img/services/overig.png'); }
 
-  .leaflet_content {
+  .services_content {
     position: absolute;
     top: 0;
     left: 0;
@@ -731,7 +763,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     right: 0;
   }
 
-  .leaflet_item {
+  .services_item {
     width: 20%;
     height: 100%;
     float: left;
@@ -742,11 +774,11 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     background-size: 100% 100%;
   }
 
-  .leaflet_item:last-child {
+  .services_item:last-child {
     border-right: medium none;
   }
 
-  .leaflet_item > .leaflet_overlay {
+  .services_item > .services_overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -756,7 +788,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     background-color: rgba(0, 0, 0, 0.3);
   }
 
-  .leaflet_item > .leaflet_backdrop {
+  .services_item > .services_backdrop {
     position: absolute;
     top: 0;
     left: 0;
@@ -769,8 +801,8 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     background-repeat: no-repeat;
   }
 
-  .leaflet_item > .leaflet_front,
-  .leaflet_item > .leaflet_back {
+  .services_item > .services_front,
+  .services_item > .services_back {
     position: absolute;
     left: 0;
     height: 100%;
@@ -784,7 +816,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     -ms-backface-visibility: hidden;
   }
 
-  .leaflet_item > .leaflet_front {
+  .services_item > .services_front {
     transform: translate(0, 0);
     -moz-transform: translate(0, 0);
     -webkit-transform: translate(0, 0);
@@ -800,18 +832,18 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     filter:alpha(opacity=100);
   }
 
-  .leaflet_item > .leaflet_front > span {
+  .services_item > .services_front > span {
     position: absolute;
     top: 10%;
     left: 10%;
   }
 
-  .leaflet_item > .leaflet_front > i {
+  .services_item > .services_front > i {
     top: 10%;
     right: 10%;
   }
 
-  .leaflet_item > .leaflet_back {
+  .services_item > .services_back {
     transform: translate(0, 100%);
     -moz-transform: translate(0, 100%);
     -webkit-transform: translate(0, 100%);
@@ -819,19 +851,19 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     padding: 8%;
   }
 
-  .leaflet_item > .leaflet_back ul {
+  .services_item > .services_back ul {
     margin-top: 5%;
   }
 
-  .leaflet_item:hover > .leaflet_backdrop {
+  .services_item:hover > .services_backdrop {
     background-size: 105% 105%;
   }
 
-  .leaflet_item:hover > .leaflet_overlay {
+  .services_item:hover > .services_overlay {
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  .leaflet_item:hover > .leaflet_front {
+  .services_item:hover > .services_front {
     transform: translate(0, -100%);
     -moz-transform: translate(0, -100%);
     -webkit-transform: translate(0, -100%);
@@ -844,7 +876,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     filter:alpha(opacity=0);
   }
 
-  .leaflet_item:hover > .leaflet_back {
+  .services_item:hover > .services_back {
     transform: translate(0, 0);
     -moz-transform: translate(0, 0);
     -webkit-transform: translate(0, 0);
@@ -882,6 +914,11 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   margin-bottom: 20px;
 }
 
+/* NOTE: nieuws sectie tijdelijk verborgen */
+.hidden {
+  display: none;
+}
+
 .nieuws h3 {
   display: inline-block;
 }
@@ -901,37 +938,37 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
 
 
 @media all and (min-width: 941px) and (max-width: 1060px) {
-  .leaflet {
+  .services {
     font-size: 18px;
   }
 }
 
 @media all and (min-width: 1060px) and (max-width: 1140px) {
-  .leaflet {
+  .services {
     font-size: 20px;
   }
 }
 
 @media all and (min-width: 1140px) and (max-width: 1220px) {
-  .leaflet {
+  .services {
     font-size: 22px;
   }
 }
 
 @media all and (min-width: 1220px) and (max-width: 1350px) {
-  .leaflet {
+  .services {
     font-size: 24px;
   }
 }
 
 @media all and (min-width: 1350px) and (max-width: 1460px) {
-  .leaflet {
+  .services {
     font-size: 26px;
   }
 }
 
 @media all and (min-width: 1460px) {
-  .leaflet {
+  .services {
     font-size: 28px;
   }
 }

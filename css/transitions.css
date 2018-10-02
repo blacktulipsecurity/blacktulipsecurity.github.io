@@ -82,7 +82,7 @@ body.loaded .headerContent .menu li.active:after {
 	transition: height .2s ease-out;
 }*/
 
-body.loaded .leaflet {
+body.loaded .services {
 	-webkit-transition: margin-top .4s ease-in-out;
 	-moz-transition: margin-top .4s ease-in-out;
 	-o-transition: margin-top .4s ease-in-out;
@@ -90,7 +90,7 @@ body.loaded .leaflet {
 	transition: margin-top .4s ease-in-out;
 }
 
-body.loaded .leaflet_item {
+body.loaded .services_item {
 	-webkit-transition: max-height .3s ease-in-out, padding .3s ease-in-out;
 	-moz-transition: max-height .3s ease-in-out, padding .3s ease-in-out;
 	-o-transition: max-height .3s ease-in-out, padding .3s ease-in-out;
@@ -98,10 +98,10 @@ body.loaded .leaflet_item {
 	transition: max-height .3s ease-in-out, padding .3s ease-in-out;
 }
 
-body.loaded .leaflet_item > .leaflet_backdrop,
-body.loaded .leaflet_item > .leaflet_overlay,
-body.loaded .leaflet_item > .leaflet_front,
-body.loaded .leaflet_item > .leaflet_back {
+body.loaded .services_item > .services_backdrop,
+body.loaded .services_item > .services_overlay,
+body.loaded .services_item > .services_front,
+body.loaded .services_item > .services_back {
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
