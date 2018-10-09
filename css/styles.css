@@ -39,6 +39,9 @@ body {
   -webkit-overflow-scrolling: touch;
   line-height: 23px;
   font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
 }
 
 img {
@@ -740,7 +743,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   .services:before {
     content: "";
     display: block;
-    padding-top: 30%;
+    padding-top: 35%;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
@@ -796,7 +799,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     bottom: 0;
     z-index: 10;
     height: auto;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
   }
@@ -848,7 +851,7 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
     -moz-transform: translate(0, 100%);
     -webkit-transform: translate(0, 100%);
     -ms-transform: translate(0, 100%);
-    padding: 8%;
+    padding: 12%;
   }
 
   .services_item > .services_back ul {
@@ -856,11 +859,11 @@ a:not(.noAnimate):hover:after, a:not(.noAnimate):focus:after, a:not(.noAnimate):
   }
 
   .services_item:hover > .services_backdrop {
-    background-size: 105% 105%;
+    transform: scale(1.05);
   }
 
   .services_item:hover > .services_overlay {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   .services_item:hover > .services_front {
